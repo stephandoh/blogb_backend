@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 
+const blogRoute = require('./src/routes/blogRoute')
 const userRoute = require('./src/routes/userRoute')
 
 const db = process.env.dbLink
@@ -21,7 +22,9 @@ mongoose.connect(db, {useNewUrlParser:true, useUnifiedTopology:true, useCreateIn
 app.use(express.json())
 
 // routes
+app.use(blogRoute)
 app.use(userRoute)
+
 
 app.get('/', (req,res)=>{
     res.status(200).send('<h1>hello</h1>')
