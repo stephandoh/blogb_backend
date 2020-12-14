@@ -1,0 +1,7 @@
+# node folders
+/node_modules
+
+# private files
+.env
+info.txt
+/images
